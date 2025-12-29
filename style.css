@@ -375,7 +375,108 @@ h2, h3, h4 {
     gap: 15px;
 }
 
-/* --- MEDIA QUERIES --- */
+/* --- RESPONSIVIDAD (Media Queries) --- */
+
+/* --- OPTIMIZACIÓN MÓVIL (Menos de 600px) --- */
+@media (max-width: 600px) {
+    /* 1. Centrar todo el contenido para equilibrio visual */
+    .hero-section {
+        text-align: center;
+        padding: 60px 20px; /* Más espacio arriba y abajo */
+        min-height: 90vh; /* Que ocupe casi toda la pantalla */
+    }
+
+    .hero-content {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        margin: 0 auto;
+    }
+
+    /* 2. Ajustar tamaños de texto */
+    .title-huge {
+        font-size: 1.7rem; /* Tamaño más armónico */
+        line-height: 1.3;
+        margin-bottom: 15px;
+    }
+
+    .subtitle-lead {
+        font-size: 0.95rem;
+        line-height: 1.6;
+        margin-bottom: 35px;
+        padding: 0 10px; /* Evita que el texto toque los bordes */
+    }
+
+    /* 3. Botones más limpios */
+    .hero-actions {
+        width: 100%;
+        max-width: 280px; /* Evita que los botones sean infinitamente anchos */
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+    }
+
+    .btn {
+        width: 100%;
+        margin-right: 0;
+        padding: 14px; /* Más fácil de presionar con el dedo */
+        font-size: 0.95rem;
+    }
+
+        /* 4. Contraste de Fondo (Crucial para legibilidad) */
+        /* Capa de contraste corregida para que cubra TODA la imagen */
+        .hero-slider::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            /* Forzamos inicio arriba */
+            left: 0;
+            /* Forzamos inicio a la izquierda */
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.6);
+            /* Sombra uniforme */
+            z-index: 1;
+            /* Capa intermedia */
+        }
+    
+        /* Aseguramos que el contenido del hero esté por encima de la sombra */
+        .hero-content {
+            position: relative;
+            z-index: 2;
+        }
+
+    /* 5. Ajuste del Logo/Navbar en móvil */
+    .navbar {
+        padding: 10px 5%;
+    }
+
+    .logo {
+        font-size: 1.3em;
+    }
+}
+
+/* 2. Ajustes para TABLETS (600px hasta 899px) */
+@media (min-width: 600px) and (max-width: 899px) {
+    .features-grid {
+        grid-template-columns: repeat(2, 1fr); /* 2 columnas en tablets */
+    }
+
+    .product-grid {
+        grid-template-columns: repeat(2, 1fr); /* Mantenemos 2 columnas */
+    }
+
+    .contact-wrapper {
+        grid-template-columns: 1fr; /* Una sola columna para que el formulario sea ancho */
+    }
+    
+    .section-title {
+        font-size: 1.8rem;
+    }
+}
+
+/* 3. Ajustes para ESCRITORIO (900px en adelante) */
 @media (min-width: 900px) {
     .main-menu {
         display: flex;
